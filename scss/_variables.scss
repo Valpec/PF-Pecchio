@@ -42,3 +42,20 @@ $font-semibold: "wght" 500;
     align-items: center;
     justify-content: space-between;
 }
+
+@mixin flex-row-center-start{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+@mixin flex-col-start-cen-cen{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    align-content: center;
+}

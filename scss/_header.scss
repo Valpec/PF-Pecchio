@@ -1,13 +1,11 @@
 /* header */
 header {
-  // @include flex-col-center-cen;
   background: $hueso-color;
   position: sticky;
   top: 0;
+  z-index: 1000;
 }
 @media (min-width: 1024px) {
-  
-
   .navHeader {
     @include flex-row-center-bet;
     padding: .5rem 1.5rem;
@@ -32,5 +30,35 @@ header {
       }
     }
   }
+
+}
+
+//footer
+
+footer {
+  background-color: $hueso-color;
+  @include flex-row-center-aro;
+  .redesFooter{
+    @include flex-row-center-aro;
+    
+  }
+  img{
+    max-width: 200px;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 768px){
+  //hacer header hamburgues
+  .logoFooter, .logoHeader{
+    img{
+    max-width: 100px;
+  }
+}
+ .botonesHeader{
+  img{
+    max-width: 40px;
+  }
+ }
 
 }
