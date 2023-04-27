@@ -14,12 +14,20 @@
 
 <body class="gridHome">
     <header class="fullWidth">
+    <input class="togglerCheck" type="checkbox" id="toggle">
+
         <nav class="navHeader">
           <a href="#" class="logoHeader">
             <img class="imgFluid" src="img/icons/logo_texto_verde.png" alt="Logo Cattalina Texto" />
           </a>
+          <label class="navToggler" for="toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </label>
+          <div class="navLinks">
           <ul>
-            <li><a href="#">INICIO</a></li>
+            <li><a href="#" class="active">INICIO</a></li>
             <li> <a href="pages/productos.html">PRODUCTOS</a></li>
             <li><a href="pages/nosotros.html">NOSOTROS</a></li>
             <li><a href="pages/preguntas_frecuentes.html">FAQS</a></li>
@@ -33,6 +41,7 @@
               <img class="imgFluid" src="img/icons/shopping-cart.png" alt="Carrito de compras" />
             </a>
           </div>
+          </div>
         </nav>
       </header>
 
@@ -40,16 +49,34 @@
     <!-- fondo velas madera -->
     <section class="bgVelaMadera">
         <div>
-            <img class="imgFluid" src="img/icons/logo_text_beige.png" alt="Logo Cattalina" />
+            <img class="imgFluid" src="img/icons/logo_texto_verde.png" alt="Logo Cattalina" />
             <h2 class="textoFondoMadera">Decoraciones y escencias para tu hogar</h2>
         </div>
     </section>
 
     <!-- bloque de ver productos -->
     <section class="accesoProds">
-        <div>
+        <!-- <div>
             <img class="imgFluid" src="img/productos/velas_carameleras_rosas.jpg" alt="Velas carameleras de rosas" />
-        </div>
+        </div> -->
+        <div class="carousel-wrapper">
+            <span id="item-1"></span>
+            <span id="item-2"></span>
+            <span id="item-3"></span>
+            <div class="carousel-item item-1">
+              <a href="#item-3" class="arrow-prev arrow"></a>
+              <a href="#item-2" class="arrow-next arrow"></a>
+            </div>
+        
+            <div class="carousel-item item-2">
+              <a href="#item-1" class="arrow-prev arrow"></a>
+              <a href="#item-3" class="arrow-next arrow"></a>
+            </div>
+        
+            <div class="carousel-item item-3">
+              <a href="#item-2" class="arrow-prev arrow"></a>
+              <a href="#item-1" class="arrow-next arrow"></a>
+            </div>
 
         <a href="pages/productos.html" class="prodButton">VER PRODUCTOS</a>
     </section>

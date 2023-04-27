@@ -51,11 +51,12 @@ $font-semibold: "wght" 500;
     justify-content: flex-start;
 }
 
-@mixin flex-col-start-cen-cen{
+@mixin flex-col-center-start{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-items: flex-start;
+    // align-items: flex-start;
     justify-content: center;
-    align-content: center;
+    align-content: flex-start;
 }
+

@@ -5,60 +5,124 @@ header {
   top: 0;
   z-index: 1000;
 }
+
+.logoHeader img {
+  max-width: 180px;
+}
+
+.botonesHeader {
+  img {
+    max-width: 30px;
+  }
+}
+
+.togglerCheck {
+  display: none;
+}
+
+
 @media (min-width: 1024px) {
   .navHeader {
     @include flex-row-center-bet;
-    padding: .5rem 1.5rem;
+    padding: 0 1.5rem;
 
-    .logoHeader img{
-      max-width: 180px;
+    .navLinks {
+      @include flex-row-center-aro;
+      a{
+      color: #64696e;
+        &:hover{
+          color: $negro-color;
+        }
+      }
+      .active{
+        color: $negro-color;
+      }
     }
-
     ul {
       @include flex-row-center-aro;
-
       li {
         padding: 1rem;
       }
     }
-
     .botonesHeader {
       @include flex-row-center-cen;
+      padding: 1rem;
+    }
+  }
+}
 
-      img {
-        max-width: 30px;
+
+@media (max-width:768px) {
+  .navHeader {
+  @include flex-row-center-bet;
+
+    .navToggler {
+      display: grid;
+    }
+
+    .navLinks {
+      @include flex-col-center-start;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+
+      li,
+      .botonesHeader {
+        padding: .7rem;
       }
     }
   }
+}
 
+.navToggler {
+  display: none;
+  height: min-content;
+  padding: 1rem;
+  cursor: pointer;
+
+  .bar {
+    width: 40px;
+    height: 5px;
+    margin-bottom: 10px;
+    background: $negro-color;
+    border-radius: 10%;
+    transition: .4s;
+  }
+}
+
+.togglerCheck:checked~nav {
+  .navLinks {
+    transition: .6s;
+    max-height: 100%;
+  }
+
+  .navToggler {
+    .bar:nth-child(1) {
+      position: absolute;
+      transform: rotate(45deg);
+    }
+
+    .bar:nth-child(2) {
+      display: none;
+    }
+
+    .bar:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+  }
 }
 
 //footer
-
 footer {
   background-color: $hueso-color;
   @include flex-row-center-aro;
-  .redesFooter{
+
+  .redesFooter {
     @include flex-row-center-aro;
-    
   }
-  img{
+
+  img {
     max-width: 200px;
     padding: 0.5rem;
   }
-}
-
-@media (max-width: 768px){
-  //hacer header hamburgues
-  .logoFooter, .logoHeader{
-    img{
-    max-width: 100px;
-  }
-}
- .botonesHeader{
-  img{
-    max-width: 40px;
-  }
- }
-
 }
