@@ -13,6 +13,11 @@ header {
 .botonesHeader {
   img {
     max-width: 30px;
+    padding: .3rem;
+    &:hover{
+     color: $rosa-color;
+     //hacer animacion
+    }
   }
 }
 
@@ -26,35 +31,55 @@ header {
     @include flex-row-center-bet;
     padding: 0 1.5rem;
 
-    .navLinks {
-      @include flex-row-center-aro;
-      a{
-      color: #64696e;
-        &:hover{
-          color: $negro-color;
-        }
-      }
-      .active{
-        color: $negro-color;
-      }
-    }
     ul {
       @include flex-row-center-aro;
+
       li {
         padding: 1rem;
+        a {
+          color: $gris-osc-color;
+    
+          &::after {
+            content: "";
+            width: 0;
+            display: block;
+            border-bottom: 1px solid $marron-color;
+            transition: ease-in-out .4s;
+          }
+    
+          &:hover {
+            color: $negro-color;
+    
+            &::after {
+              width: 100%;
+            }
+          }
+        }
       }
     }
+
     .botonesHeader {
       @include flex-row-center-cen;
       padding: 1rem;
     }
   }
+
+  .navLinks {
+    @include flex-row-center-aro;
+
+    .active {
+      color: $negro-color;
+    }
+
+    
+  }
 }
+
 
 
 @media (max-width:768px) {
   .navHeader {
-  @include flex-row-center-bet;
+    @include flex-row-center-bet;
 
     .navToggler {
       display: grid;
@@ -81,8 +106,8 @@ header {
   cursor: pointer;
 
   .bar {
-    width: 40px;
-    height: 5px;
+    width: 35px;
+    height: 2px;
     margin-bottom: 10px;
     background: $negro-color;
     border-radius: 10%;
@@ -114,6 +139,7 @@ header {
 
 //footer
 footer {
+  padding: 0;
   background-color: $hueso-color;
   @include flex-row-center-aro;
 

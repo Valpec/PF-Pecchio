@@ -10,17 +10,14 @@
 }
 
 //grales
-* {
+body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: "montserrat";
-    color: $negro-color;
+    min-height: 100vh;
 }
 
-// .br5 {
-//     border-radius: 10px;
-// }
 
 .fullWidth {
     width: 100%;
@@ -33,10 +30,9 @@
 }
 
 a {
+    color: $negro-color;
     text-decoration: none;
-
 }
-
 
 ul {
     list-style-type: none;
@@ -98,8 +94,8 @@ ul {
         display: grid;
         grid-template-columns: 50% 50%;
         grid-template-rows: auto;
-        grid-template-areas: 
-        "carousel botProd";
+        grid-template-areas:
+            "carousel botProd";
         // display: flex;
         // align-items: center;
         // justify-content: space-around;
@@ -110,11 +106,13 @@ ul {
         background: $hueso-color;
         padding: .7rem;
         color: $negro-color;
-        &:hover{
-             background: $gris-color;
+
+        &:hover {
+            background: $gris-color;
             border: $gris-color solid 1.5px;
         }
     }
+
     .carousel-wrapper {
         grid-area: carousel;
         height: 300px;
@@ -122,9 +120,9 @@ ul {
         position: relative;
         display: block;
         // margin: 50px auto ;
-      }
-      
-      .carousel-item {
+    }
+
+    .carousel-item {
         position: absolute;
         top: 0;
         bottom: 0;
@@ -134,61 +132,64 @@ ul {
         // padding: 20rem;
         opacity: 0;
         transition: all 0.5s ease-in-out;
-      }
-      .arrow{
+    }
+
+    .arrow {
         border: solid $hueso-color;
         border-width: 0 3px 3px 0;
         display: inline-block;
         padding: 12px;
-      }
+    }
 
-      .arrow-prev {
+    .arrow-prev {
         left: 30px;
         position: absolute;
         top: 50%;
         transform: translateY(-50%) rotate(135deg);
-      }
-      
-      .arrow-next {
+    }
+
+    .arrow-next {
         right: 30px;
         position: absolute;
         top: 50%;
         transform: translateY(-50%) rotate(-45deg);
-      }
-      
-      [id^= "item"] {
+    }
+
+    [id^="item"] {
         display: none;
-      }
-      .item-1 {
+    }
+
+    .item-1 {
         z-index: 2;
         opacity: 1;
         background: url(../img/productos/esencia_carrousel.jpg);
         background-size: cover;
-      }
-      .item-2 {
+    }
+
+    .item-2 {
         background: url(../img/productos/caramelera_carrousel.jpg);
         background-size: cover;
-      }
-      .item-3 {
+    }
+
+    .item-3 {
         background: url(../img/productos/velas_madera_fondo.jpg);
         background-size: cover;
-      }
-      
-      *:target ~ .item-1{
+    }
+
+    *:target~.item-1 {
         opacity: 0;
-      }
-      #item-1:target ~ .item-1 {
+    }
+
+    #item-1:target~.item-1 {
         opacity: 1;
-      
-      }
-      #item-2:target ~ .item-2, #item-3:target ~ .item-3 {
+
+    }
+
+    #item-2:target~.item-2,
+    #item-3:target~.item-3 {
         z-index: 3;
         opacity: 1;
-      } 
-
-
-
-
+    }
 
     .cardGrid {
         display: grid;
@@ -225,8 +226,9 @@ ul {
         color: $negro-color;
         background: $hueso-color;
         padding: 10px;
-        :hover{
-             background: $gris-color;
+
+        :hover {
+            background: $gris-color;
             border: $gris-color solid 1.5px;
         }
     }
@@ -294,19 +296,10 @@ ul {
     .catDeco {
         display: grid;
         grid-template-columns: 33% 34% 33%;
-        grid-template-rows: auto auto auto auto;
+        grid-template-rows: auto;
         padding: 1.5rem;
-    //     grid-template-areas: 
-    //     "titulo"
-    //     "productos"
-     }
+    }
 
-    // .titCatalogo{
-    //     grid-area: titulo;
-    // }
-    // .itemCatalogo{
-    //     grid-area: productos;
-    // }
 
     .itemCatalogo {
         @include flex-col-center-cen;
@@ -314,13 +307,17 @@ ul {
         row-gap: 1rem;
         cursor: pointer;
         transition: transform 1s ease-in-out;
-    
-    
+
+
         img:hover {
             transform: scale(1.2);
         }
-    
-    
+    }
+
+    .titCatalogo {
+        text-align: center;
+        padding-top: 4rem;
+        scroll-margin-top: 10rem;
     }
 
     // nosotros
@@ -376,7 +373,7 @@ ul {
         background-color: $marron-color;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: auto auto auto auto;
+        grid-template-rows: min-content auto auto min-content;
         grid-template-areas:
             "header"
             "title"
@@ -402,35 +399,56 @@ ul {
 
     }
 
-    .material-symbols-outlined,
-    .input,
-    .answer {
+    .tab {
+        border-bottom: solid 1px $hueso-color;
+
+        &:last-of-type {
+            border-bottom: 0px;
+        }
+    }
+
+    .tab-input,
+    .tab-answer {
         display: none;
     }
 
-    .label {
+    .tab-label {
         @include flex-row-center-bet;
+        font-variation-settings: $font-semibold;
+        padding: 1.1rem;
+        // margin: 0 .7rem;
         cursor: pointer;
-        padding: 1.5rem;
-        border-bottom: solid 1px $hueso-color;
-        color: $negro-color;
+
+        &:hover {
+            background-color: $hueso-color;
+        }
+
+        &::after {
+            content: "❯";
+            transition: all .4s;
+        }
     }
 
-    .label:hover .material-symbols-outlined {
-        display: inline-block;
+    .tab-answer {
+        padding: 1.4rem;
+        transition: all .4s;
     }
 
-    .answer p {
-        padding: 1.5rem 2rem;
-        color: $negro-color;
-    }
+    .tab-input {
+        &:checked~.tab-answer {
+            display: block;
+        }
 
-    .input:checked~.answer {
-        display: block;
-    }
+        &:checked~.tab-label {
+            background-color: $hueso-color;
 
-    .input:checked~.answer::after {
-        transform: translateY(-50%) rotate(0.5turn);
+            &::after {
+                transform: rotate(90deg);
+            }
+        }
+
+
+
     }
 
     //contacto
@@ -453,42 +471,122 @@ ul {
         grid-area: medio;
     }
 
-    form {
-         padding: 2rem 1rem;
-       }
+
     .bloqueContacto {
         background-color: $gris-color;
+        // overflow: hidden;
         padding: 6rem;
     }
 
+    .formContacto {
+        // padding: 2rem 1rem;
+        column-gap: 2rem;
+        padding: 1rem 0;
+
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas:
+            "nombre nombre"
+            "email telefono"
+            "msj msj"
+            "send send";
+
+    }
+
+    .formGroupName {
+        grid-area: nombre;
+    }
+
+    .formGroupMail {
+        grid-area: email;
+    }
+
+    .formGroupPhone {
+        grid-area: telefono;
+    }
+
+    .formGroupMsj {
+        grid-area: msj;
+    }
+
+    .formButton {
+        grid-area: send;
+    }
+
+
+    .formGroupName,
+    .formGroupMail,
+    .formGroupPhone,
+    .formGroupMsj {
+        position: relative;
+        padding: .7rem;
+    }
+
+    .formLabel {
+        position: absolute;
+        top: 0;
+        transform: translateY(30px);
+        transition: all .4s;
+
+    }
+
     .formInput {
-        background: none;
+        background: transparent;
         color: $hueso-color;
         border: none;
         outline: none;
-        border-bottom: 1px solid;
+        border-bottom: 1.5px solid $hueso-color;
         padding: .7rem;
-        margin: 5% 0%;
+        margin: .5rem 0;
+        // display: block;
+
+        &::placeholder {
+            color: transparent;
+        }
+
+        &:focus {
+            border-bottom: 1.5px solid $gris-osc-color;
+
+            +.formLabel {
+                color: $gris-osc-color;
+                transform: translateY(0);
+                font-size: .9rem;
+
+            }
+        }
+
+        &:valid+.formLabel {
+
+            color: $gris-osc-color;
+            transform: translateY(0);
+            font-size: .9rem;
+        }
     }
 
     .formButton {
         border: none;
         padding: 1rem;
         background-color: $hueso-color;
+        cursor: pointer;
+
         :hover {
             background-color: $gris-color;
         }
     }
 
     .bloqueContactoMedios {
-        margin: 4rem;
-        background-color: $gris-color;
         @include flex-col-center-start;
+        background-color: $gris-color;
+        margin: 9rem;
+        padding: 2rem;
+        text-align: center;
     }
 
     .linkContact {
         @include flex-row-center-start;
-        img{
+
+        img {
             padding: 1rem;
         }
     }
@@ -679,16 +777,22 @@ ul {
         @include flex-col-center-cen;
         padding: 1.5rem;
         row-gap: 1rem;
-    
+
         cursor: pointer;
         transition: transform 1s ease-in-out;
-    
-    
+
+
         img:hover {
             transform: scale(1.2);
         }
-    
-    }   
+
+    }
+
+    .titCatalogo {
+        text-align: center;
+        padding-top: 4rem;
+        scroll-margin-top: 10rem;
+    }
 
     // nosotros
     .gridNos {
@@ -799,6 +903,7 @@ ul {
     .input:checked~.answer::after {
         transform: translateY(-50%) rotate(0.5turn);
     }
+
     // cont
     //contacto
     .gridContact {
@@ -822,8 +927,9 @@ ul {
     }
 
     form {
-         padding: 1rem 1rem;
-       }
+        padding: 1rem 1rem;
+    }
+
     .bloqueContacto {
         background-color: $gris-color;
         padding: 2rem;
@@ -843,6 +949,7 @@ ul {
         border: none;
         padding: 1rem;
         background-color: $hueso-color;
+
         :hover {
             background-color: $gris-color;
         }
@@ -857,10 +964,9 @@ ul {
 
     .linkContact {
         @include flex-row-center-start;
-        img{
+
+        img {
             padding: 1rem;
         }
     }
 }
-
-

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "montserrat";
   src: url(../font/Montserrat-VariableFont_wght.ttf);
@@ -6,12 +7,12 @@
   font-family: "playfair";
   src: url(../font/PlayfairDisplay-VariableFont_wght.ttf);
 }
-* {
+body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "montserrat";
-  color: #212529;
+  min-height: 100vh;
 }
 
 .fullWidth {
@@ -24,6 +25,7 @@
 }
 
 a {
+  color: #212529;
   text-decoration: none;
 }
 
@@ -145,7 +147,8 @@ ul {
   #item-1:target ~ .item-1 {
     opacity: 1;
   }
-  #item-2:target ~ .item-2, #item-3:target ~ .item-3 {
+  #item-2:target ~ .item-2,
+  #item-3:target ~ .item-3 {
     z-index: 3;
     opacity: 1;
   }
@@ -245,7 +248,7 @@ ul {
   .catDeco {
     display: grid;
     grid-template-columns: 33% 34% 33%;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto;
     padding: 1.5rem;
   }
   .itemCatalogo {
@@ -261,6 +264,11 @@ ul {
   }
   .itemCatalogo img:hover {
     transform: scale(1.2);
+  }
+  .titCatalogo {
+    text-align: center;
+    padding-top: 4rem;
+    scroll-margin-top: 10rem;
   }
   .gridNos {
     display: grid;
@@ -306,7 +314,7 @@ ul {
     background-color: #A38F85;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: min-content auto auto min-content;
     grid-template-areas: "header" "title" "faqs" "footer";
   }
   .faqs {
@@ -322,34 +330,45 @@ ul {
     background-color: #CDC6C3;
     margin: 2rem;
   }
-  .material-symbols-outlined,
-  .input,
-  .answer {
+  .tab {
+    border-bottom: solid 1px #EDE9E3;
+  }
+  .tab:last-of-type {
+    border-bottom: 0px;
+  }
+  .tab-input,
+  .tab-answer {
     display: none;
   }
-  .label {
+  .tab-label {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    font-variation-settings: "wght" 500;
+    padding: 1.1rem;
     cursor: pointer;
-    padding: 1.5rem;
-    border-bottom: solid 1px #EDE9E3;
-    color: #212529;
   }
-  .label:hover .material-symbols-outlined {
-    display: inline-block;
+  .tab-label:hover {
+    background-color: #EDE9E3;
   }
-  .answer p {
-    padding: 1.5rem 2rem;
-    color: #212529;
+  .tab-label::after {
+    content: "❯";
+    transition: all 0.4s;
   }
-  .input:checked ~ .answer {
+  .tab-answer {
+    padding: 1.4rem;
+    transition: all 0.4s;
+  }
+  .tab-input:checked ~ .tab-answer {
     display: block;
   }
-  .input:checked ~ .answer::after {
-    transform: translateY(-50%) rotate(0.5turn);
+  .tab-input:checked ~ .tab-label {
+    background-color: #EDE9E3;
+  }
+  .tab-input:checked ~ .tab-label::after {
+    transform: rotate(90deg);
   }
   .gridContact {
     background-color: #E7D7C9;
@@ -364,38 +383,90 @@ ul {
   .bloqueContactoMedios {
     grid-area: medio;
   }
-  form {
-    padding: 2rem 1rem;
-  }
   .bloqueContacto {
     background-color: #CDC6C3;
     padding: 6rem;
   }
+  .formContacto {
+    column-gap: 2rem;
+    padding: 1rem 0;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "nombre nombre" "email telefono" "msj msj" "send send";
+  }
+  .formGroupName {
+    grid-area: nombre;
+  }
+  .formGroupMail {
+    grid-area: email;
+  }
+  .formGroupPhone {
+    grid-area: telefono;
+  }
+  .formGroupMsj {
+    grid-area: msj;
+  }
+  .formButton {
+    grid-area: send;
+  }
+  .formGroupName,
+  .formGroupMail,
+  .formGroupPhone,
+  .formGroupMsj {
+    position: relative;
+    padding: 0.7rem;
+  }
+  .formLabel {
+    position: absolute;
+    top: 0;
+    transform: translateY(30px);
+    transition: all 0.4s;
+  }
   .formInput {
-    background: none;
+    background: transparent;
     color: #EDE9E3;
     border: none;
     outline: none;
-    border-bottom: 1px solid;
+    border-bottom: 1.5px solid #EDE9E3;
     padding: 0.7rem;
-    margin: 5% 0%;
+    margin: 0.5rem 0;
+  }
+  .formInput::placeholder {
+    color: transparent;
+  }
+  .formInput:focus {
+    border-bottom: 1.5px solid #64696e;
+  }
+  .formInput:focus + .formLabel {
+    color: #64696e;
+    transform: translateY(0);
+    font-size: 0.9rem;
+  }
+  .formInput:valid + .formLabel {
+    color: #64696e;
+    transform: translateY(0);
+    font-size: 0.9rem;
   }
   .formButton {
     border: none;
     padding: 1rem;
     background-color: #EDE9E3;
+    cursor: pointer;
   }
   .formButton :hover {
     background-color: #CDC6C3;
   }
   .bloqueContactoMedios {
-    margin: 4rem;
-    background-color: #CDC6C3;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
+    background-color: #CDC6C3;
+    margin: 9rem;
+    padding: 2rem;
+    text-align: center;
   }
   .linkContact {
     display: flex;
@@ -582,6 +653,11 @@ ul {
   .itemCatalogo img:hover {
     transform: scale(1.2);
   }
+  .titCatalogo {
+    text-align: center;
+    padding-top: 4rem;
+    scroll-margin-top: 10rem;
+  }
   .gridNos {
     display: grid;
     grid-template-columns: 100%;
@@ -743,6 +819,10 @@ header {
 
 .botonesHeader img {
   max-width: 30px;
+  padding: 0.3rem;
+}
+.botonesHeader img:hover {
+  color: #D4B2A7;
 }
 
 .togglerCheck {
@@ -758,22 +838,6 @@ header {
     justify-content: space-between;
     padding: 0 1.5rem;
   }
-  .navHeader .navLinks {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-  }
-  .navHeader .navLinks a {
-    color: #64696e;
-  }
-  .navHeader .navLinks a:hover {
-    color: #212529;
-  }
-  .navHeader .navLinks .active {
-    color: #212529;
-  }
   .navHeader ul {
     display: flex;
     flex-direction: row;
@@ -784,6 +848,22 @@ header {
   .navHeader ul li {
     padding: 1rem;
   }
+  .navHeader ul li a {
+    color: #64696e;
+  }
+  .navHeader ul li a::after {
+    content: "";
+    width: 0;
+    display: block;
+    border-bottom: 1px solid #A38F85;
+    transition: ease-in-out 0.4s;
+  }
+  .navHeader ul li a:hover {
+    color: #212529;
+  }
+  .navHeader ul li a:hover::after {
+    width: 100%;
+  }
   .navHeader .botonesHeader {
     display: flex;
     flex-direction: row;
@@ -791,6 +871,16 @@ header {
     align-items: center;
     justify-content: center;
     padding: 1rem;
+  }
+  .navLinks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .navLinks .active {
+    color: #212529;
   }
 }
 @media (max-width: 768px) {
@@ -826,8 +916,8 @@ header {
   cursor: pointer;
 }
 .navToggler .bar {
-  width: 40px;
-  height: 5px;
+  width: 35px;
+  height: 2px;
   margin-bottom: 10px;
   background: #212529;
   border-radius: 10%;
@@ -850,6 +940,7 @@ header {
 }
 
 footer {
+  padding: 0;
   background-color: #EDE9E3;
   display: flex;
   flex-direction: row;
