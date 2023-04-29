@@ -7,12 +7,14 @@
   font-family: "playfair";
   src: url(../font/PlayfairDisplay-VariableFont_wght.ttf);
 }
-body {
-  box-sizing: border-box;
+* {
   margin: 0;
   padding: 0;
   font-family: "montserrat";
-  min-height: 100vh;
+}
+
+body {
+  height: 100vh;
 }
 
 .fullWidth {
@@ -38,7 +40,7 @@ ul {
     background-color: #E7D7C9;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: auto 35% auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
     grid-template-areas: "header" "bgVela " "accProd " "accCards" "footer";
   }
   header {
@@ -62,40 +64,47 @@ ul {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background: url(../img/productos/velas_carameleras_rosas.jpg) no-repeat center center fixed;
+    background: url(../img/productos/velas_madera_fondo.jpg) no-repeat center center fixed;
     width: 100%;
     height: auto;
     position: relative;
     background-size: cover;
+    padding: 10rem 0;
   }
   .bgVelaMadera .textoFondoMadera {
+    color: #E7D7C9;
     font-family: "playfair";
     text-align: center;
   }
   .accesoProds {
     margin-top: 4rem;
+    padding: 2rem 0;
     background-color: #A38F85;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: auto;
-    grid-template-areas: "carousel botProd";
+    grid-template-areas: "carousel prodButton";
+    align-items: center;
+    justify-items: center;
   }
   .prodButton {
-    grid-area: botProd;
+    grid-area: prodButton;
     background: #EDE9E3;
     padding: 0.7rem;
     color: #212529;
+    width: fit-content;
+    transition: 0.4s;
   }
   .prodButton:hover {
     background: #CDC6C3;
-    border: #CDC6C3 solid 1.5px;
   }
   .carousel-wrapper {
     grid-area: carousel;
-    height: 300px;
-    width: 500px;
+    height: 450px;
+    width: 700px;
     position: relative;
     display: block;
+    margin: 2rem;
   }
   .carousel-item {
     position: absolute;
@@ -110,7 +119,7 @@ ul {
     border: solid #EDE9E3;
     border-width: 0 3px 3px 0;
     display: inline-block;
-    padding: 12px;
+    padding: 1rem;
   }
   .arrow-prev {
     left: 30px;
@@ -181,13 +190,19 @@ ul {
   }
   .cardButton {
     position: absolute;
-    color: #212529;
     background: #EDE9E3;
-    padding: 10px;
+    padding: 0.7rem;
+    transition: 0.4s;
   }
-  .cardButton :hover {
+  .cardButton:hover {
     background: #CDC6C3;
-    border: #CDC6C3 solid 1.5px;
+  }
+  .cardButton:hover + .cardImg {
+    opacity: 0.8;
+  }
+  .cardImg {
+    z-index: -1;
+    transition: 0.4s;
   }
   .gridProductos {
     background-color: #E7D7C9;
@@ -231,6 +246,7 @@ ul {
     position: sticky;
     top: 7rem;
     z-index: 500;
+    align-self: start;
   }
   .menuProd ul {
     display: flex;
@@ -242,6 +258,9 @@ ul {
   .menuProd ul li {
     padding: 1rem;
   }
+  .menuProd a:hover {
+    color: #E7D7C9;
+  }
   .catVelas,
   .catEscencias,
   .catTextiles,
@@ -250,17 +269,15 @@ ul {
     grid-template-columns: 33% 34% 33%;
     grid-template-rows: auto;
     padding: 1.5rem;
+    justify-items: center;
   }
   .itemCatalogo {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    max-width: fit-content;
     padding: 2rem 6rem;
     row-gap: 1rem;
     cursor: pointer;
     transition: transform 1s ease-in-out;
+    text-align: center;
   }
   .itemCatalogo img:hover {
     transform: scale(1.2);
@@ -272,16 +289,9 @@ ul {
   }
   .gridNos {
     display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "header" "nosotros" "footer";
-  }
-  .mainNos {
-    grid-area: nosotros;
-    display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: auto;
-    grid-template-areas: "titulo texto";
+    grid-template-rows: auto 80vh auto;
+    grid-template-areas: "header header" "titulo texto" "footer footer";
   }
   .titNos {
     grid-area: titulo;
@@ -291,9 +301,9 @@ ul {
     align-items: center;
     justify-content: center;
     background-color: #E7D7C9;
-    padding: 2rem;
   }
-  .titNos h2 {
+  .titNos img {
+    width: fit-content;
     padding: 2rem 0;
   }
   .textoNos {
@@ -304,10 +314,11 @@ ul {
     align-items: center;
     justify-content: center;
     background-color: #CDC6C3;
-    padding: 3rem;
+    padding: 5rem;
     line-height: 1.5rem;
   }
   .textoNos p {
+    text-align: center;
     padding: 0.5rem 0rem;
   }
   .gridFaqs {
@@ -325,19 +336,21 @@ ul {
   }
   .titleFaqs {
     text-align: center;
+    padding-top: 4rem;
   }
   .faqs {
     background-color: #CDC6C3;
     margin: 2rem;
+    height: min-content;
   }
   .tab {
-    border-bottom: solid 1px #EDE9E3;
+    border-bottom: solid 1.5px #EDE9E3;
+    overflow: hidden;
   }
   .tab:last-of-type {
     border-bottom: 0px;
   }
-  .tab-input,
-  .tab-answer {
+  .tab-input {
     display: none;
   }
   .tab-label {
@@ -355,14 +368,16 @@ ul {
   }
   .tab-label::after {
     content: "❯";
-    transition: all 0.4s;
+    transition: 0.4s;
   }
   .tab-answer {
-    padding: 1.4rem;
-    transition: all 0.4s;
+    padding: 0 1.4rem;
+    transition: ease-out 0.4s;
+    max-height: 0;
   }
   .tab-input:checked ~ .tab-answer {
-    display: block;
+    max-height: max-content;
+    padding: 2rem;
   }
   .tab-input:checked ~ .tab-label {
     background-color: #EDE9E3;
@@ -374,7 +389,7 @@ ul {
     background-color: #E7D7C9;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto 80vh auto;
     grid-template-areas: "header header" "contact medio" "footer footer";
   }
   .bloqueContacto {
@@ -386,12 +401,17 @@ ul {
   .bloqueContacto {
     background-color: #CDC6C3;
     padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
   .formContacto {
     column-gap: 2rem;
     padding: 1rem 0;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 40% 40%;
     grid-template-rows: auto auto auto auto;
     grid-template-areas: "nombre nombre" "email telefono" "msj msj" "send send";
   }
@@ -428,12 +448,17 @@ ul {
     color: #EDE9E3;
     border: none;
     outline: none;
-    border-bottom: 1.5px solid #EDE9E3;
+    border-bottom: 1.5px solid #212529;
     padding: 0.7rem;
     margin: 0.5rem 0;
   }
   .formInput::placeholder {
     color: transparent;
+  }
+  .formInput:not(:placeholder-shown) + .formLabel {
+    color: #64696e;
+    transform: translateY(0);
+    font-size: 0.9rem;
   }
   .formInput:focus {
     border-bottom: 1.5px solid #64696e;
@@ -443,19 +468,30 @@ ul {
     transform: translateY(0);
     font-size: 0.9rem;
   }
+  .formInput:required + .formLabel {
+    color: #212529;
+  }
+  .formInput:valid {
+    border-bottom: 1.5px solid #A38F85;
+  }
   .formInput:valid + .formLabel {
-    color: #64696e;
+    color: #A38F85;
     transform: translateY(0);
     font-size: 0.9rem;
   }
   .formButton {
     border: none;
     padding: 1rem;
+    border-radius: 5%;
+    width: min-content;
     background-color: #EDE9E3;
     cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    justify-self: center;
   }
-  .formButton :hover {
-    background-color: #CDC6C3;
+  .formButton:hover {
+    background-color: #E7D7C9;
   }
   .bloqueContactoMedios {
     display: flex;
@@ -463,20 +499,31 @@ ul {
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
+    flex-wrap: nowrap;
+    align-items: center;
     background-color: #CDC6C3;
     margin: 9rem;
     padding: 2rem;
     text-align: center;
+    text-size-adjust: 100%;
+  }
+  .bloqueContactoMedios h2 {
+    padding: 1.5rem 0;
   }
   .linkContact {
+    padding: 1rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
   }
-  .linkContact img {
-    padding: 1rem;
+  .linkContact p {
+    padding: 0 1rem;
+    word-break: break-word;
+  }
+  .linkContact:hover {
+    color: #A38F85;
   }
 }
 @media (max-width: 768px) {
@@ -764,17 +811,63 @@ ul {
     padding: 1rem 1rem;
   }
   .bloqueContacto {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     background-color: #CDC6C3;
-    padding: 2rem;
+    padding: 1rem;
+    overflow: hidden;
+  }
+  .formGroupName,
+  .formGroupMail,
+  .formGroupPhone,
+  .formGroupMsj {
+    position: relative;
+    padding: 0.5rem;
+  }
+  .formLabel {
+    position: absolute;
+    top: 0;
+    transform: translateY(30px);
+    transition: all 0.4s;
   }
   .formInput {
-    background: none;
+    background: transparent;
     color: #EDE9E3;
     border: none;
     outline: none;
-    border-bottom: 1px solid;
+    border-bottom: 1.5px solid #212529;
     padding: 0.7rem;
-    margin: 5% 0%;
+    margin: 0.5rem 0;
+  }
+  .formInput::placeholder {
+    color: transparent;
+  }
+  .formInput:not(:placeholder-shown) + .formLabel {
+    color: #64696e;
+    transform: translateY(0);
+    font-size: 0.9rem;
+  }
+  .formInput:focus {
+    border-bottom: 1.5px solid #64696e;
+  }
+  .formInput:focus + .formLabel {
+    color: #64696e;
+    transform: translateY(0);
+    font-size: 0.9rem;
+  }
+  .formInput:required + .formLabel {
+    color: #212529;
+  }
+  .formInput:valid {
+    border-bottom: 1.5px solid #A38F85;
+  }
+  .formInput:valid + .formLabel {
+    color: #A38F85;
+    transform: translateY(0);
+    font-size: 0.9rem;
   }
   .formButton {
     border: none;
@@ -846,7 +939,7 @@ header {
     justify-content: space-around;
   }
   .navHeader ul li {
-    padding: 1rem;
+    padding: 0.7rem;
   }
   .navHeader ul li a {
     color: #64696e;
@@ -947,6 +1040,7 @@ footer {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
+  max-height: min-content;
 }
 footer .redesFooter {
   display: flex;

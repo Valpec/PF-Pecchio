@@ -10,14 +10,17 @@
 }
 
 //grales
-body {
-    box-sizing: border-box;
+* {
     margin: 0;
     padding: 0;
     font-family: "montserrat";
-    min-height: 100vh;
+    // min-height: 100vh; 
+    // font-variation-settings: $font-thin;
 }
 
+body {
+    height: 100vh;
+}
 
 .fullWidth {
     width: 100%;
@@ -45,7 +48,7 @@ ul {
         background-color: $beige-color;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: auto 35% auto auto auto;
+        grid-template-rows: auto auto auto auto auto;
         grid-template-areas:
             "header"
             "bgVela "
@@ -76,13 +79,15 @@ ul {
 
     .bgVelaMadera {
         @include flex-col-center-cen;
-        background: url(../img/productos/velas_carameleras_rosas.jpg) no-repeat center center fixed;
+        background: url(../img/productos/velas_madera_fondo.jpg) no-repeat center center fixed;
         width: 100%;
         height: auto;
         position: relative;
         background-size: cover;
+        padding: 10rem 0;
 
         .textoFondoMadera {
+            color: $beige-color;
             font-family: "playfair";
             text-align: center;
         }
@@ -90,36 +95,38 @@ ul {
 
     .accesoProds {
         margin-top: 4rem;
+        padding: 2rem 0;
         background-color: $marron-color;
         display: grid;
         grid-template-columns: 50% 50%;
         grid-template-rows: auto;
         grid-template-areas:
-            "carousel botProd";
-        // display: flex;
-        // align-items: center;
-        // justify-content: space-around;
+            "carousel prodButton";
+
+        align-items: center;
+        justify-items: center;
     }
 
     .prodButton {
-        grid-area: botProd;
+        grid-area: prodButton;
         background: $hueso-color;
         padding: .7rem;
         color: $negro-color;
+        width: fit-content;
+        transition: .4s;
 
         &:hover {
             background: $gris-color;
-            border: $gris-color solid 1.5px;
         }
     }
 
     .carousel-wrapper {
         grid-area: carousel;
-        height: 300px;
-        width: 500px;
+        height: 450px;
+        width: 700px;
         position: relative;
         display: block;
-        // margin: 50px auto ;
+        margin: 2rem;
     }
 
     .carousel-item {
@@ -128,8 +135,6 @@ ul {
         bottom: 0;
         left: 0;
         right: 0;
-        // padding: 25px 50px;
-        // padding: 20rem;
         opacity: 0;
         transition: all 0.5s ease-in-out;
     }
@@ -138,7 +143,7 @@ ul {
         border: solid $hueso-color;
         border-width: 0 3px 3px 0;
         display: inline-block;
-        padding: 12px;
+        padding: 1rem;
     }
 
     .arrow-prev {
@@ -182,7 +187,6 @@ ul {
 
     #item-1:target~.item-1 {
         opacity: 1;
-
     }
 
     #item-2:target~.item-2,
@@ -223,14 +227,22 @@ ul {
 
     .cardButton {
         position: absolute;
-        color: $negro-color;
         background: $hueso-color;
-        padding: 10px;
+        padding: .7rem;
+        transition: .4s;
 
-        :hover {
+        &:hover {
             background: $gris-color;
-            border: $gris-color solid 1.5px;
+
+            +.cardImg {
+                opacity: .8;
+            }
         }
+    }
+
+    .cardImg {
+        z-index: -1;
+        transition: .4s;
     }
 
 
@@ -280,12 +292,18 @@ ul {
         position: sticky;
         top: 7rem;
         z-index: 500;
+        align-self: start;
 
         ul {
             @include flex-row-center-aro;
 
             li {
                 padding: 1rem;
+            }
+        }
+        a {
+            &:hover {
+                color: $beige-color;
             }
         }
     }
@@ -296,19 +314,19 @@ ul {
     .catDeco {
         display: grid;
         grid-template-columns: 33% 34% 33%;
-        grid-template-rows: auto;
+        grid-template-rows: auto ;
         padding: 1.5rem;
+        justify-items: center;
     }
 
 
     .itemCatalogo {
-        @include flex-col-center-cen;
+        max-width: fit-content;
         padding: 2rem 6rem;
         row-gap: 1rem;
         cursor: pointer;
         transition: transform 1s ease-in-out;
-
-
+        text-align: center;
         img:hover {
             transform: scale(1.2);
         }
@@ -323,34 +341,24 @@ ul {
     // nosotros
     .gridNos {
         display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: auto auto auto;
-        grid-template-areas:
-            "header"
-            "nosotros"
-            "footer";
-    }
-
-    .mainNos {
-        grid-area: nosotros;
-
-        display: grid;
         grid-template-columns: 50% 50%;
-        grid-template-rows: auto;
+        grid-template-rows: auto 80vh auto;
         grid-template-areas:
-            "titulo texto";
+            "header header"
+            "titulo texto"
+            "footer footer";
     }
 
     .titNos {
         grid-area: titulo;
-
         @include flex-col-center-cen;
         background-color: $beige-color;
-        padding: 2rem;
 
-        h2 {
+        img{
+            width: fit-content;
             padding: 2rem 0;
         }
+
     }
 
     .textoNos {
@@ -358,14 +366,14 @@ ul {
 
         @include flex-col-center-cen;
         background-color: $gris-color;
-        padding: 3rem;
+        padding: 5rem;
         line-height: 1.5rem;
 
         p {
+            text-align: center;
             padding: 0.5rem 0rem;
         }
     }
-
 
 
     //faqs
@@ -391,24 +399,25 @@ ul {
 
     .titleFaqs {
         text-align: center;
+        padding-top: 4rem;
     }
 
     .faqs {
         background-color: $gris-color;
         margin: 2rem;
-
+        height: min-content;
     }
 
     .tab {
-        border-bottom: solid 1px $hueso-color;
+        border-bottom: solid 1.5px $hueso-color;
+        overflow: hidden;
 
         &:last-of-type {
             border-bottom: 0px;
         }
     }
 
-    .tab-input,
-    .tab-answer {
+    .tab-input {
         display: none;
     }
 
@@ -425,18 +434,20 @@ ul {
 
         &::after {
             content: "❯";
-            transition: all .4s;
+            transition: .4s;
         }
     }
 
     .tab-answer {
-        padding: 1.4rem;
-        transition: all .4s;
+        padding: 0 1.4rem;
+        transition: ease-out .4s;
+        max-height: 0;
     }
 
     .tab-input {
         &:checked~.tab-answer {
-            display: block;
+            max-height: max-content;
+            padding: 2rem;
         }
 
         &:checked~.tab-label {
@@ -446,17 +457,16 @@ ul {
                 transform: rotate(90deg);
             }
         }
-
-
-
     }
+
+
 
     //contacto
     .gridContact {
         background-color: $beige-color;
         display: grid;
         grid-template-columns: 50% 50%;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto 80vh auto;
         grid-template-areas:
             "header header"
             "contact medio"
@@ -474,17 +484,18 @@ ul {
 
     .bloqueContacto {
         background-color: $gris-color;
-        // overflow: hidden;
         padding: 6rem;
+        @include flex-col-center-cen;
+
     }
 
+
     .formContacto {
-        // padding: 2rem 1rem;
         column-gap: 2rem;
         padding: 1rem 0;
 
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 40% 40%;
         grid-template-rows: auto auto auto auto;
         grid-template-areas:
             "nombre nombre"
@@ -536,13 +547,20 @@ ul {
         color: $hueso-color;
         border: none;
         outline: none;
-        border-bottom: 1.5px solid $hueso-color;
+        border-bottom: 1.5px solid $negro-color;
         padding: .7rem;
         margin: .5rem 0;
-        // display: block;
 
         &::placeholder {
             color: transparent;
+        }
+
+        &:not(:placeholder-shown) {
+            +.formLabel {
+                color: $gris-osc-color;
+                transform: translateY(0);
+                font-size: .9rem;
+            }
         }
 
         &:focus {
@@ -552,42 +570,64 @@ ul {
                 color: $gris-osc-color;
                 transform: translateY(0);
                 font-size: .9rem;
-
             }
         }
 
-        &:valid+.formLabel {
+        &:required+.formLabel {
+            color: $negro-color;
+        }
 
-            color: $gris-osc-color;
-            transform: translateY(0);
-            font-size: .9rem;
+        &:valid {
+            border-bottom: 1.5px solid $marron-color;
+
+            +.formLabel {
+                color: $marron-color;
+                transform: translateY(0);
+                font-size: .9rem;
+            }
         }
     }
 
     .formButton {
         border: none;
         padding: 1rem;
+        border-radius: 5%;
+        width: min-content;
         background-color: $hueso-color;
         cursor: pointer;
+        font-size: 1em;
+        display: flex;
+        justify-self: center;
 
-        :hover {
-            background-color: $gris-color;
+        &:hover {
+            background-color: $beige-color;
         }
     }
 
     .bloqueContactoMedios {
         @include flex-col-center-start;
+        flex-wrap: nowrap;
+        align-items: center;
         background-color: $gris-color;
         margin: 9rem;
         padding: 2rem;
         text-align: center;
+        text-size-adjust: 100%;
+        h2{
+            padding: 1.5rem 0;
+        }
     }
 
     .linkContact {
+        padding : 1rem;
         @include flex-row-center-start;
 
-        img {
-            padding: 1rem;
+        p{
+            padding: 0 1rem ;
+            word-break: break-word;
+        }
+        &:hover{
+            color: $marron-color;
         }
     }
 
@@ -931,18 +971,75 @@ ul {
     }
 
     .bloqueContacto {
+        @include flex-col-center-cen;
         background-color: $gris-color;
-        padding: 2rem;
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    .formGroupName,
+    .formGroupMail,
+    .formGroupPhone,
+    .formGroupMsj {
+        position: relative;
+        padding: .5rem;
+        // overflow: hidden;
+        // width: 100%;
+    }
+
+    .formLabel {
+        position: absolute;
+        top: 0;
+        transform: translateY(30px);
+        transition: all .4s;
+
     }
 
     .formInput {
-        background: none;
+        background: transparent;
         color: $hueso-color;
         border: none;
         outline: none;
-        border-bottom: 1px solid;
+        border-bottom: 1.5px solid $negro-color;
         padding: .7rem;
-        margin: 5% 0%;
+        margin: .5rem 0;
+
+        &::placeholder {
+            color: transparent;
+        }
+
+        &:not(:placeholder-shown) {
+            +.formLabel {
+                color: $gris-osc-color;
+                transform: translateY(0);
+                font-size: .9rem;
+            }
+        }
+
+        &:focus {
+            border-bottom: 1.5px solid $gris-osc-color;
+
+            +.formLabel {
+                color: $gris-osc-color;
+                transform: translateY(0);
+                font-size: .9rem;
+
+            }
+        }
+
+        &:required+.formLabel {
+            color: $negro-color;
+        }
+
+        &:valid {
+            border-bottom: 1.5px solid $marron-color;
+
+            +.formLabel {
+                color: $marron-color;
+                transform: translateY(0);
+                font-size: .9rem;
+            }
+        }
     }
 
     .formButton {

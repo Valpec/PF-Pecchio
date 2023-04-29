@@ -1,7 +1,10 @@
 /* header */
 header {
+  // box-sizing: border-box;
+
   background: $hueso-color;
   position: sticky;
+  // align-self: start;
   top: 0;
   z-index: 1000;
 }
@@ -35,7 +38,7 @@ header {
       @include flex-row-center-aro;
 
       li {
-        padding: 1rem;
+        padding: .7rem;
         a {
           color: $gris-osc-color;
     
@@ -142,6 +145,7 @@ footer {
   padding: 0;
   background-color: $hueso-color;
   @include flex-row-center-aro;
+  max-height: min-content;
 
   .redesFooter {
     @include flex-row-center-aro;

@@ -49,7 +49,7 @@
 
   <!-- texto -->
   <div class="bloqueContacto">
-    <div class="formTitle">
+    <div class="formTitle fullWidth">
       <h1>Contactate con nosotros</h1>
       <p>
         Dejanos tu mensaje para concretar la compra o resolver cualquier duda
@@ -59,29 +59,29 @@
 
     <form class="fullWidth formContacto" action="#">
       <div class="formGroupName">
-        <input type="text" id="name" class="formInput fullWidth" placeholder="Nombre:"/>
+        <input type="text" id="name" class="formInput fullWidth" autocomplete="off" placeholder="Nombre:" required/>
         <label for="name" class="formLabel">Nombre:</label>
       </div>
+
       <div class="formGroupMail">
-       
-        <input type="email" id="mail" class="formInput fullWidth" />
+        <input type="email" id="mail" class="formInput fullWidth" autocomplete="off" placeholder="Email:" required/>
         <label for="mail" class="formLabel">Email:</label>
       </div>
       <div class="formGroupPhone">
-        <input type="tel" id="phone" class="formInput fullWidth" />
+        <input type="tel" id="phone" class="formInput fullWidth" autocomplete="off" placeholder="Telefono:" required/>
         <label for="phone" class="formLabel">Telefono:</label>
         
       </div>
       <div class="formGroupMsj">
-        <input type="text" id="msj" class="formInput fullWidth" />
+        <input type="text" id="msj" class="formInput fullWidth" autocomplete="off" placeholder="Mensaje:" required/>
         <label for="msj" class="formLabel">Mensaje:</label> 
       </div>
-      <input type="submit" class="formButton fullWidth" value="Enviar" />
+      <input type="submit" class="formButton" value="Enviar" />
     </form>
   </div>
   <!-- seccion de otros medios -->
   <section class="bloqueContactoMedios">
-    <h1>Otros medios:</h1>
+    <h2>Otros medios:</h2>
 
     <a class="linkContact" href="https://www.instagram.com/cattalina.decohome/" target="_blank">
       <img src="../img/icons/instagram_beige.png" alt="Instagram" />
