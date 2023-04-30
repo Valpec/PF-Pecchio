@@ -2,8 +2,7 @@
 /* header */
 header {
   background: #EDE9E3;
-  position: sticky;
-  top: 0;
+  position: fixed;
   z-index: 1000;
 }
 
@@ -15,9 +14,6 @@ header {
   max-width: 30px;
   padding: 0.3rem;
 }
-.botonesHeader img:hover {
-  color: #D4B2A7;
-}
 
 .togglerCheck {
   display: none;
@@ -27,7 +23,6 @@ header {
   .navHeader {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding: 0 1.5rem;
@@ -35,7 +30,6 @@ header {
   .navHeader ul {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
   }
@@ -61,7 +55,6 @@ header {
   .navHeader .botonesHeader {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     padding: 1rem;
@@ -69,7 +62,6 @@ header {
   .navLinks {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
   }
@@ -81,9 +73,9 @@ header {
   .navHeader {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   .navHeader .navToggler {
     display: grid;
@@ -91,7 +83,6 @@ header {
   .navHeader .navLinks {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
     width: 100%;
@@ -138,15 +129,14 @@ footer {
   background-color: #EDE9E3;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
   max-height: min-content;
 }
 footer .redesFooter {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
 }
@@ -184,7 +174,7 @@ footer img {
     width: 700px;
     position: relative;
     display: block;
-    margin: 2rem;
+    margin-left: 2rem;
   }
   .carousel-item {
     position: absolute;
@@ -219,15 +209,19 @@ footer img {
   .item-1 {
     z-index: 2;
     opacity: 1;
-    background: url(../img/productos/esencia_carrousel.jpg);
+    background: url(../img/productos/vela_madera_fondo.jpg);
     background-size: cover;
   }
   .item-2 {
-    background: url(../img/productos/caramelera_carrousel.jpg);
+    background: url(../img/productos/camino_mesa.jpeg);
     background-size: cover;
   }
   .item-3 {
-    background: url(../img/productos/velas_madera_fondo.jpg);
+    background: url(../img/productos/vela_nar_carousel.jpg);
+    background-size: cover;
+  }
+  .item-4 {
+    background: url(../img/productos/velas_vidrio_carousel.jpeg);
     background-size: cover;
   }
   *:target ~ .item-1 {
@@ -237,7 +231,8 @@ footer img {
     opacity: 1;
   }
   #item-2:target ~ .item-2,
-  #item-3:target ~ .item-3 {
+  #item-3:target ~ .item-3,
+  #item-4:target ~ .item-4 {
     z-index: 3;
     opacity: 1;
   }
@@ -264,7 +259,6 @@ footer img {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
   }
@@ -291,7 +285,7 @@ footer img {
     color: #E7D7C9;
   }
   .catVelas,
-  .catEscencias,
+  .catEsencias,
   .catTextiles,
   .catDeco {
     display: grid;
@@ -303,12 +297,10 @@ footer img {
   .itemCatalogo {
     max-width: fit-content;
     padding: 2rem 6rem;
-    row-gap: 1rem;
-    transition: transform 1s ease-in-out;
     text-align: center;
-    font-size: 2em;
+    transition: transform ease-in-out 0.5s;
   }
-  .itemCatalogo img:hover {
+  .itemCatalogo:hover {
     transform: scale(1.2);
   }
   .gridNos {
@@ -321,20 +313,19 @@ footer img {
     grid-area: titulo;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     background-color: #E7D7C9;
+    padding-top: 5rem;
   }
   .titNos img {
-    width: fit-content;
+    width: 50%;
     padding: 2rem 0;
   }
   .textoNos {
     grid-area: texto;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     background-color: #CDC6C3;
@@ -344,6 +335,9 @@ footer img {
   .textoNos p {
     text-align: center;
     padding: 0.5rem 0rem;
+  }
+  .textoNos p span {
+    font-variation-settings: "wght" 500;
   }
   .titleFaqs {
     text-align: center;
@@ -367,7 +361,6 @@ footer img {
   .tab-label {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     font-variation-settings: "wght" 500;
@@ -414,7 +407,6 @@ footer img {
     padding: 6rem;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
   }
@@ -441,60 +433,70 @@ footer img {
   .formButton {
     grid-area: send;
   }
-  .formButton {
-    border: none;
-    padding: 1rem;
-    border-radius: 5%;
-    width: min-content;
-    background-color: #EDE9E3;
-    cursor: pointer;
-    font-size: 1em;
-    display: flex;
-    justify-self: center;
-  }
-  .formButton:hover {
-    background-color: #E7D7C9;
-  }
-  .bloqueContactoMedios {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
-    flex-wrap: nowrap;
-    align-items: center;
-    background-color: #CDC6C3;
-    margin: 9rem;
-    padding: 2rem;
-    text-align: center;
-    text-size-adjust: 100%;
-  }
-  .bloqueContactoMedios h2 {
-    padding: 1.5rem 0;
-  }
-  .linkContact {
-    padding: 1rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-  }
-  .linkContact p {
-    padding: 0 1rem;
-    word-break: break-word;
-  }
-  .linkContact:hover {
-    color: #A38F85;
-  }
 }
+.formButton {
+  border: none;
+  padding: 1rem;
+  border-radius: 5%;
+  width: min-content;
+  background-color: #EDE9E3;
+  cursor: pointer;
+  font-size: 1em;
+  display: flex;
+  justify-self: center;
+}
+.formButton:hover {
+  background-color: #E7D7C9;
+}
+
+.bloqueContactoMedios {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: #CDC6C3;
+  margin: 9rem;
+  padding: 2rem;
+  text-align: center;
+  text-size-adjust: 100%;
+}
+.bloqueContactoMedios h2 {
+  padding: 1.5rem 0;
+}
+.bloqueContactoMedios h2::after {
+  content: "";
+  width: 0;
+  display: block;
+  border-bottom: 2px solid #A38F85;
+  transition: ease-in-out 0.4s;
+}
+.bloqueContactoMedios h2:hover::after {
+  width: 100%;
+}
+
+.linkContact {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.linkContact p {
+  padding: 0 1rem;
+  word-break: break-word;
+}
+.linkContact:hover {
+  color: #A38F85;
+}
+
 @media (max-width: 768px) {
   .accesoProds {
     margin-top: 10%;
     background-color: #A38F85;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
   }
@@ -548,15 +550,19 @@ footer img {
   .item-1 {
     z-index: 2;
     opacity: 1;
-    background: url(../img/productos/esencia_carrousel.jpg);
+    background: url(../img/productos/vela_madera_fondo.jpg);
     background-size: cover;
   }
   .item-2 {
-    background: url(../img/productos/caramelera_carrousel.jpg);
+    background: url(../img/productos/camino_mesa.jpeg);
     background-size: cover;
   }
   .item-3 {
-    background: url(../img/productos/velas_madera_fondo.jpg);
+    background: url(../img/productos/vela_nar_carousel.jpg);
+    background-size: cover;
+  }
+  .item-4 {
+    background: url(../img/productos/velas_vidrio_carousel.jpeg);
     background-size: cover;
   }
   *:target ~ .item-1 {
@@ -566,7 +572,8 @@ footer img {
     opacity: 1;
   }
   #item-2:target ~ .item-2,
-  #item-3:target ~ .item-3 {
+  #item-3:target ~ .item-3,
+  #item-4:target ~ .item-4 {
     z-index: 3;
     opacity: 1;
   }
@@ -593,7 +600,6 @@ footer img {
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
   }
@@ -604,6 +610,9 @@ footer img {
     padding: 0.5rem;
     font-size: 0.7em;
   }
+  .menuProd ul {
+    flex-wrap: wrap;
+  }
   .menuProd li {
     padding: 0.7rem;
   }
@@ -611,7 +620,7 @@ footer img {
     color: #E7D7C9;
   }
   .catVelas,
-  .catEscencias,
+  .catEsencias,
   .catTextiles,
   .catDeco {
     display: grid;
@@ -639,13 +648,13 @@ footer img {
     grid-area: titulo;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     background-color: #E7D7C9;
-    padding: 2rem;
+    padding: 7rem 2rem 2rem 2rem;
   }
-  .titNos h2 {
+  .titNos img {
+    width: 70%;
     padding: 2rem 0;
   }
   .textoNos {
@@ -657,9 +666,12 @@ footer img {
   .textoNos p {
     padding: 0.5rem 0rem;
   }
+  .textoNos p span {
+    font-variation-settings: "wght" 500;
+  }
   .titleFaqs {
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 7rem;
   }
   .faqs {
     background-color: #CDC6C3;
@@ -679,7 +691,6 @@ footer img {
   .tab-label {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     font-variation-settings: "wght" 500;
@@ -725,17 +736,15 @@ footer img {
   .bloqueContacto {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     background-color: #CDC6C3;
-    padding: 2rem 1.5rem;
+    padding: 7rem 2rem 1.5rem 1.5rem;
   }
   .formContacto {
     width: 80%;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
   }
@@ -758,20 +767,18 @@ footer img {
     background-color: #CDC6C3;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
   }
   .linkContact {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
     flex-wrap: nowrap;
   }
   .linkContact img {
-    padding: 1rem;
+    padding: 0.6rem;
   }
   .linkContact p {
     word-break: break-word;
@@ -793,6 +800,10 @@ footer img {
 
 body {
   height: 100vh;
+}
+
+h1, h2, h3, h5 {
+  font-variation-settings: "wght" 500;
 }
 
 .fullWidth {
@@ -817,7 +828,7 @@ ul {
   background-color: #E7D7C9;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: auto auto auto auto auto;
+  grid-template-rows: auto 90vh auto auto auto;
   grid-template-areas: "header" "bgVela " "accProd " "accCards" "footer";
 }
 
@@ -844,36 +855,33 @@ footer {
 .bgVelaMadera {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  background: url(../img/productos/velas_madera_fondo.jpg) no-repeat center center fixed;
+  background: url(../img/productos/vela_madera_nar.jpg) no-repeat center center fixed;
+  background-color: gray;
+  background-blend-mode: multiply;
   width: 100%;
   height: auto;
   position: relative;
   background-size: cover;
-  padding: 9rem 0;
 }
 .bgVelaMadera .textoFondoMadera {
-  color: #E7D7C9;
+  color: #A38F85;
   font-family: "playfair";
   text-align: center;
+  font-variation-settings: "wght" 300;
 }
 
 .gridProductos {
   background-color: #E7D7C9;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: auto auto auto auto auto;
-  grid-template-areas: "header" "mainProd" "menuP" "prodCat" "footer";
+  grid-template-rows: auto 60vh auto auto;
+  grid-template-areas: "header" "mainProd" "prodCat" "footer";
 }
 
 .bgVelaVidrio {
   grid-area: mainProd;
-}
-
-.menuProd {
-  grid-area: menuP;
 }
 
 .gridCatalogo {
@@ -881,37 +889,38 @@ footer {
 }
 
 .bgVelaVidrio {
-  background: url(../img/productos/velas_carameleras_rosas.jpg) no-repeat center center fixed;
+  background: url(../img/productos/velas_caramelera_rosa.jpeg) no-repeat center center fixed;
   width: 100%;
   height: auto;
   position: relative;
   background-size: cover;
-}
-.bgVelaVidrio .textoFondoVidrio {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  color: #E7D7C9;
-  padding: 12rem 0;
+}
+.bgVelaVidrio .textoFondoVidrio {
+  color: #A38F85;
+  font-family: "playfair";
+  font-variation-settings: "wght" 400;
+  font-size: 3em;
+  text-align: center;
 }
 
 .menuProd {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   background-color: #A38F85;
   position: sticky;
-  top: 7rem;
+  top: 5.7rem;
+  width: 100%;
   z-index: 500;
 }
 .menuProd ul {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
 }
@@ -919,6 +928,7 @@ footer {
 .titCatalogo {
   text-align: center;
   padding-top: 4rem;
+  font-size: 1.5em;
   scroll-margin-top: 10rem;
 }
 

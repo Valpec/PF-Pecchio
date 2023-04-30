@@ -66,17 +66,21 @@
     .item-1 {
         z-index: 2;
         opacity: 1;
-        background: url(../img/productos/esencia_carrousel.jpg);
+        background: url(../img/productos/vela_madera_fondo.jpg);
         background-size: cover;
     }
 
     .item-2 {
-        background: url(../img/productos/caramelera_carrousel.jpg);
+        background: url(../img/productos/camino_mesa.jpeg);
         background-size: cover;
     }
 
     .item-3 {
-        background: url(../img/productos/velas_madera_fondo.jpg);
+        background: url(../img/productos/vela_nar_carousel.jpg);
+        background-size: cover;
+    }
+    .item-4 {
+        background: url(../img/productos/velas_vidrio_carousel.jpeg);
         background-size: cover;
     }
 
@@ -89,7 +93,9 @@
     }
 
     #item-2:target~.item-2,
-    #item-3:target~.item-3 {
+    #item-3:target~.item-3,
+    #item-4:target~.item-4 
+        {
         z-index: 3;
         opacity: 1;
     }
@@ -136,10 +142,12 @@
 
     //prods
     .menuProd {
+        ul{
+        flex-wrap: wrap;
+        }
         li {
             padding: .7rem;
         }
-
         a {
             &:active {
                 color: $beige-color;
@@ -148,7 +156,7 @@
     }
 
     .catVelas,
-    .catEscencias,
+    .catEsencias,
     .catTextiles,
     .catDeco {
         display: grid;
@@ -158,7 +166,6 @@
     }
 
     .itemCatalogo {
-        // @include flex-col-center-cen;
         padding: 1.5rem;
         row-gap: 1rem;
         cursor: pointer;
@@ -186,9 +193,9 @@
         grid-area: titulo;
         @include flex-col-center-cen;
         background-color: $beige-color;
-        padding: 2rem;
-
-        h2 {
+        padding: 7rem 2rem 2rem 2rem;
+        img{
+            width: 70%;
             padding: 2rem 0;
         }
     }
@@ -202,13 +209,16 @@
 
         p {
             padding: 0.5rem 0rem;
+            span{
+                font-variation-settings: $font-semibold;
+            }
         }
     }
 
     //faqs
     .titleFaqs {
         text-align: center;
-        padding-top: 2rem;
+        padding-top: 7rem;
     }
 
     .faqs {
@@ -294,7 +304,7 @@
         @include flex-col-center-cen;
 
         background-color: $gris-color;
-        padding: 2rem 1.5rem;
+        padding: 7rem 2rem 1.5rem 1.5rem;
 
     }
 
@@ -330,7 +340,7 @@
         @include flex-row-center-start;
         flex-wrap: nowrap;
         img {
-            padding: 1rem;
+            padding: .6rem;
         }
         p{
             word-break: break-word;

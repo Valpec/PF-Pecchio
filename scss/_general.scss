@@ -19,6 +19,10 @@
 body {
     height: 100vh;
 }
+h1, h2, h3, h5{
+    font-variation-settings: $font-semibold;
+
+}
 
 .fullWidth {
     width: 100%;
@@ -43,7 +47,7 @@ ul {
     background-color: $beige-color;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows: auto 90vh auto auto auto;
     grid-template-areas:
         "header"
         "bgVela "
@@ -74,17 +78,20 @@ footer {
 
 .bgVelaMadera {
     @include flex-col-center-cen;
-    background: url(../img/productos/velas_madera_fondo.jpg) no-repeat center center fixed;
+    background: url(../img/productos/vela_madera_nar.jpg) no-repeat center center fixed;
+    background-color: gray;
+    background-blend-mode: multiply;
     width: 100%;
     height: auto;
     position: relative;
     background-size: cover;
-    padding: 9rem 0;
+    // padding: 9rem 0;
 
     .textoFondoMadera {
-        color: $beige-color;
+        color: $marron-color;
         font-family: "playfair";
         text-align: center;
+        font-variation-settings: $font-thin;
     }
 }
 
@@ -93,11 +100,10 @@ footer {
         background-color: $beige-color;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: auto auto auto auto auto;
+        grid-template-rows: auto 60vh auto auto;
         grid-template-areas:
             "header"
             "mainProd"
-            "menuP"
             "prodCat"
             "footer";
     }
@@ -105,26 +111,24 @@ footer {
     .bgVelaVidrio {
         grid-area: mainProd;
     }
-
-    .menuProd {
-        grid-area: menuP;
-    }
-
     .gridCatalogo {
         grid-area: prodCat;
     }
 
     .bgVelaVidrio {
-        background: url(../img/productos/velas_carameleras_rosas.jpg) no-repeat center center fixed;
+        background: url(../img/productos/velas_caramelera_rosa.jpeg) no-repeat center center fixed;
         width: 100%;
         height: auto;
         position: relative;
         background-size: cover;
+        @include flex-col-center-cen;
 
         .textoFondoVidrio {
-            @include flex-col-center-cen;
-            color: $beige-color;
-            padding: 12rem 0;
+            color: $marron-color;
+            font-family: "playfair";
+            font-variation-settings: $font-regular;
+            font-size: 3em;
+            text-align: center
         }
     }
 
@@ -132,7 +136,8 @@ footer {
         @include flex-row-center-cen;
         background-color: $marron-color;
         position: sticky;
-        top: 7rem;
+        top: 5.7rem;
+        width: 100%;
         z-index: 500;
 
         ul {
@@ -142,6 +147,7 @@ footer {
     .titCatalogo {
         text-align: center;
         padding-top: 4rem;
+        font-size: 1.5em;
         scroll-margin-top: 10rem;
     }
 

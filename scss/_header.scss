@@ -1,11 +1,7 @@
 /* header */
 header {
-  // box-sizing: border-box;
-
   background: $hueso-color;
-  position: sticky;
-  // align-self: start;
-  top: 0;
+  position: fixed;
   z-index: 1000;
 }
 
@@ -17,10 +13,6 @@ header {
   img {
     max-width: 30px;
     padding: .3rem;
-    &:hover{
-     color: $rosa-color;
-     //hacer animacion
-    }
   }
 }
 
@@ -79,10 +71,10 @@ header {
 }
 
 
-
 @media (max-width:768px) {
   .navHeader {
     @include flex-row-center-bet;
+    flex-wrap: wrap;
 
     .navToggler {
       display: grid;
@@ -145,6 +137,7 @@ footer {
   padding: 0;
   background-color: $hueso-color;
   @include flex-row-center-aro;
+  flex-wrap: wrap;
   max-height: min-content;
 
   .redesFooter {

@@ -1,6 +1,5 @@
 @media (min-width: 1024px) {
-
-
+    //index
     .accesoProds {
         margin-top: 4rem;
         padding: 2rem 0;
@@ -10,7 +9,6 @@
         grid-template-rows: auto;
         grid-template-areas:
             "carousel prodButton";
-
         align-items: center;
         justify-items: center;
     }
@@ -34,7 +32,7 @@
         width: 700px;
         position: relative;
         display: block;
-        margin: 2rem;
+        margin-left: 2rem;
     }
 
     .carousel-item {
@@ -75,17 +73,21 @@
     .item-1 {
         z-index: 2;
         opacity: 1;
-        background: url(../img/productos/esencia_carrousel.jpg);
+        background: url(../img/productos/vela_madera_fondo.jpg);
         background-size: cover;
     }
 
     .item-2 {
-        background: url(../img/productos/caramelera_carrousel.jpg);
+        background: url(../img/productos/camino_mesa.jpeg);
         background-size: cover;
     }
 
     .item-3 {
-        background: url(../img/productos/velas_madera_fondo.jpg);
+        background: url(../img/productos/vela_nar_carousel.jpg);
+        background-size: cover;
+    }
+    .item-4 {
+        background: url(../img/productos/velas_vidrio_carousel.jpeg);
         background-size: cover;
     }
 
@@ -98,7 +100,8 @@
     }
 
     #item-2:target~.item-2,
-    #item-3:target~.item-3 {
+    #item-3:target~.item-3, 
+    #item-4:target~.item-4 {
         z-index: 3;
         opacity: 1;
     }
@@ -153,7 +156,6 @@
         transition: .4s;
     }
 
-
     // prods
     .menuProd {
         li {
@@ -166,10 +168,8 @@
         }
     }
 
-    
-
     .catVelas,
-    .catEscencias,
+    .catEsencias,
     .catTextiles,
     .catDeco {
         display: grid;
@@ -183,12 +183,9 @@
     .itemCatalogo {
         max-width: fit-content;
         padding: 2rem 6rem;
-        row-gap: 1rem;
-        transition: transform 1s ease-in-out;
         text-align: center;
-        font-size: 2em;
-
-        img:hover {
+        transition: transform ease-in-out .5s;
+        &:hover{
             transform: scale(1.2);
         }
     }
@@ -208,9 +205,10 @@
         grid-area: titulo;
         @include flex-col-center-cen;
         background-color: $beige-color;
+        padding-top: 5rem;
 
         img {
-            width: fit-content;
+            width: 50%;
             padding: 2rem 0;
         }
 
@@ -227,6 +225,9 @@
         p {
             text-align: center;
             padding: 0.5rem 0rem;
+            span{
+                font-variation-settings: $font-semibold;
+            }
         }
     }
 
@@ -260,7 +261,6 @@
         @include flex-row-center-bet;
         font-variation-settings: $font-semibold;
         padding: 1.1rem;
-        // margin: 0 .7rem;
         cursor: pointer;
 
         &:hover {
@@ -354,9 +354,8 @@
     .formButton {
         grid-area: send;
     }
-
-
-
+ 
+}
     .formButton {
         border: none;
         padding: 1rem;
@@ -385,6 +384,17 @@
 
         h2 {
             padding: 1.5rem 0;
+            &::after {
+                content: "";
+                width: 0;
+                display: block;
+                border-bottom: 2px solid $marron-color;
+                transition: ease-in-out .4s;
+              }
+        
+              &:hover::after  {
+                  width: 100%;
+                }
         }
     }
 
@@ -402,4 +412,3 @@
         }
     }
 
-}

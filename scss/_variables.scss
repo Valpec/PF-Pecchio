@@ -15,7 +15,6 @@ $font-semibold: "wght" 500;
 @mixin flex-col-center-cen{
     display:flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
@@ -23,7 +22,6 @@ $font-semibold: "wght" 500;
 @mixin flex-row-center-cen{
     display:flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
@@ -31,7 +29,6 @@ $font-semibold: "wght" 500;
 @mixin flex-row-center-aro{
     display:flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
 }
@@ -39,7 +36,6 @@ $font-semibold: "wght" 500;
 @mixin flex-row-center-bet{
     display:flex;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
@@ -47,7 +43,7 @@ $font-semibold: "wght" 500;
 @mixin flex-row-center-start{
     display:flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
 }
@@ -55,7 +51,7 @@ $font-semibold: "wght" 500;
 @mixin flex-col-center-start{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     // align-items: flex-start;
     justify-content: center;
     align-content: flex-start;
