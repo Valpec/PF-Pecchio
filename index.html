@@ -12,6 +12,8 @@
   <!-- pestañita -->
   <link rel="shortcut icon" href="img//icons/logo_rosa.png" />
   <title>Cattalina Deco-Home</title>
+  <!-- link aos -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- css -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -91,23 +93,23 @@
   </section>
 
   <!-- botones para ir a secciones de la pag productos -->
-  <div class="cardGrid">
+  <div class="cardGrid" data-aos="fade-down" data-aos-easing="ease-in-out"  data-aos-delay="50" data-aos-duration="1000">
     <div class="card1 cardFlex">
       <a href="pages/productos.html#catalogoEsencia" class="cardButton">ESENCIAS</a>
       <img class="imgFluid cardImg" src="img/productos/esencia.jpg" alt="Esencia" />
     </div>
 
-    <div class="card2 cardFlex">
+    <div class="card2 cardFlex" data-aos="fade-down" data-aos-easing="ease-in-out"  data-aos-delay="50" data-aos-duration="1000">
       <a href="pages/productos.html#catalogoVelas" class="cardButton">VELAS</a>
       <img class="imgFluid cardImg" src="img/productos/vela_vaso_lavanda.jpg" alt="Vela en vaso lavanda" />
     </div>
 
-    <div class="card3 cardFlex">
+    <div class="card3 cardFlex" data-aos="fade-down" data-aos-easing="ease-in-out"  data-aos-delay="50" data-aos-duration="1000">
       <a href="pages/productos.html#catalogoTextiles" class="cardButton">TEXTILES</a>
       <img class="imgFluid cardImg " src="img/productos/repasadores.jpg" alt="Repasadores panal" />
     </div>
 
-    <div class="card4 cardFlex">
+    <div class="card4 cardFlex data-aos="fade-down" data-aos-easing="ease-in-out"  data-aos-delay="50" data-aos-duration="1000">
       <a href="pages/productos.html#catalogoDeco" class="cardButton">DECORACIONES</a>
       <img class="imgFluid cardImg" src="img/productos/colg_rojo.jpg" alt="Colgante decoraciones rojo" />
     </div>
@@ -130,6 +132,11 @@
       <img src="img/icons/logo_text_beige.png" alt="Logo Cattalina" />
     </div>
   </footer>
+   <!-- aos script -->
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script>
+      AOS.init();
+   </script>
 </body>
 
 </html>
