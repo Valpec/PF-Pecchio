@@ -19,7 +19,11 @@
 body {
     height: 100vh;
 }
-h1, h2, h3, h5{
+
+h1,
+h2,
+h3,
+h5 {
     font-variation-settings: $font-semibold;
 
 }
@@ -94,143 +98,274 @@ footer {
     }
 }
 
-    //prods
-    .gridProductos {
-        background-color: $beige-color;
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: auto 60vh auto auto;
-        grid-template-areas:
-            "header"
-            "mainProd"
-            "prodCat"
-            "footer";
+.accesoProds {
+    margin-top: 4rem;
+    background-color: $marron-color;
+}
+
+.prodButton {
+    background: $hueso-color;
+    transition: .4s;
+
+    &:hover {
+        background: $gris-color;
+    }
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+[id^="item"] {
+    display: none;
+}
+.item-1 {
+    z-index: 2;
+    opacity: 1;
+    background: url(../img/productos/vela_madera_fondo.jpeg);
+    background-size: cover;
+}
+
+.item-2 {
+    background: url(../img/productos/camino_mesa.jpeg);
+    background-size: cover;
+}
+
+.item-3 {
+    background: url(../img/productos/vela_nar_carousel.jpg);
+    background-size: cover;
+}
+.item-4 {
+    background: url(../img/productos/velas_vidrio_carousel.jpeg);
+    background-size: cover;
+}
+
+*:target~.item-1 {
+    opacity: 0;
+}
+
+#item-1:target~.item-1 {
+    opacity: 1;
+}
+
+#item-2:target~.item-2,
+#item-3:target~.item-3,
+#item-4:target~.item-4 
+    {
+    z-index: 3;
+    opacity: 1;
+}
+
+.cardFlex {
+    padding: 1.5rem;
+    @include flex-col-center-cen;
+}
+//productos
+.gridProductos {
+    background-color: $beige-color;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 60vh auto auto;
+    grid-template-areas:
+        "header"
+        "mainProd"
+        "prodCat"
+        "footer";
+}
+
+.bgVelaVidrio {
+    grid-area: mainProd;
+}
+
+.gridCatalogo {
+    grid-area: prodCat;
+}
+
+.bgVelaVidrio {
+    background: url(../img/productos/velas_caramelera_rosa.jpeg) no-repeat center center fixed;
+    width: 100%;
+    height: auto;
+    position: relative;
+    background-size: cover;
+    @include flex-col-center-cen;
+
+    .textoFondoVidrio {
+        color: $marron-color;
+        font-family: "playfair";
+        font-variation-settings: $font-regular;
+        font-size: 3em;
+        text-align: center
+    }
+}
+
+.menuProd {
+    @include flex-row-center-cen;
+    background-color: $marron-color;
+    position: sticky;
+    top: 5.7rem;
+    width: 100%;
+    z-index: 500;
+
+    ul {
+        @include flex-row-center-aro;
+        a {
+            &:hover {
+                color: $beige-color;
+            }
+        }
+    }
+}
+
+.titCatalogo {
+    text-align: center;
+    padding-top: 4rem;
+    font-size: 1.5em;
+    scroll-margin-top: 10rem;
+}
+
+//faqs
+.gridFaqs {
+    background-color: $marron-color;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+        "header"
+        "title"
+        "faqs"
+        "footer";
+}
+
+.faqs {
+    grid-area: faqs;
+}
+
+.titleFaqs {
+    grid-area: title;
+}
+
+.faqs {
+    background-color: $gris-color;
+    margin: 2rem;
+    height: min-content;
+}
+.tab {
+    border-bottom: solid 1.5px $hueso-color;
+    overflow: hidden;
+
+    &:last-of-type {
+        border-bottom: 0px;
+    }
+}
+
+.tab-input {
+    display: none;
+}
+
+.tab-label {
+    @include flex-row-center-bet;
+    font-variation-settings: $font-semibold;
+    padding: 1rem;
+
+    &:active {
+        background-color: $hueso-color;
     }
 
-    .bgVelaVidrio {
-        grid-area: mainProd;
+    &::after {
+        content: "❯";
+        transition: .4s;
     }
-    .gridCatalogo {
-        grid-area: prodCat;
+}
+
+.tab-answer {
+    padding: 0 1.4rem;
+    transition: ease-out .4s;
+    max-height: 0;
+}
+
+.tab-input {
+    &:checked~.tab-answer {
+        max-height: max-content;
+        padding: 2rem;
     }
 
-    .bgVelaVidrio {
-        background: url(../img/productos/velas_caramelera_rosa.jpeg) no-repeat center center fixed;
-        width: 100%;
-        height: auto;
-        position: relative;
-        background-size: cover;
-        @include flex-col-center-cen;
+    &:checked~.tab-label {
+        background-color: $hueso-color;
 
-        .textoFondoVidrio {
+        &::after {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+//contact
+.bloqueContacto{
+    @include flex-col-center-cen;
+    background-color: $gris-color;
+}
+.formGroupName,
+.formGroupMail,
+.formGroupPhone,
+.formGroupMsj {
+    position: relative;
+    padding: .7rem;
+}
+
+.formLabel {
+    position: absolute;
+    top: 0;
+    transform: translateY(30px);
+    transition: all .4s;
+
+}
+
+.formInput {
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1.5px solid $negro-color;
+    padding: .7rem;
+    margin: .5rem 0;
+
+    &::placeholder {
+        color: transparent;
+    }
+
+    &:not(:placeholder-shown) {
+        +.formLabel {
+            color: $gris-osc-color;
+            transform: translateY(0);
+            font-size: .9rem;
+        }
+    }
+
+    &:focus {
+        border-bottom: 1.5px solid $gris-osc-color;
+
+        +.formLabel {
+            color: $gris-osc-color;
+            transform: translateY(0);
+            font-size: .9rem;
+        }
+    }
+
+    &:required+.formLabel {
+        color: $negro-color;
+    }
+
+    &:valid {
+        border-bottom: 1.5px solid $marron-color;
+
+        +.formLabel {
             color: $marron-color;
-            font-family: "playfair";
-            font-variation-settings: $font-regular;
-            font-size: 3em;
-            text-align: center
+            transform: translateY(0);
+            font-size: .9rem;
         }
     }
-
-    .menuProd {
-        @include flex-row-center-cen;
-        background-color: $marron-color;
-        position: sticky;
-        top: 5.7rem;
-        width: 100%;
-        z-index: 500;
-
-        ul {
-            @include flex-row-center-aro;
-        }   
-    }
-    .titCatalogo {
-        text-align: center;
-        padding-top: 4rem;
-        font-size: 1.5em;
-        scroll-margin-top: 10rem;
-    }
-
-    //faqs
-    .gridFaqs {
-        background-color: $marron-color;
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: auto auto auto auto;
-        grid-template-areas:
-            "header"
-            "title"
-            "faqs"
-            "footer";
-    }
-
-    .faqs {
-        grid-area: faqs;
-    }
-
-    .titleFaqs {
-        grid-area: title;
-    }
-
-    //contact
-
-
-    .formGroupName,
-    .formGroupMail,
-    .formGroupPhone,
-    .formGroupMsj {
-        position: relative;
-        padding: .7rem;
-    }
-
-    .formLabel {
-        position: absolute;
-        top: 0;
-        transform: translateY(30px);
-        transition: all .4s;
-
-    }
-
-    .formInput {
-        background: transparent;
-        border: none;
-        outline: none;
-        border-bottom: 1.5px solid $negro-color;
-        padding: .7rem;
-        margin: .5rem 0;
-
-        &::placeholder {
-            color: transparent;
-        }
-
-        &:not(:placeholder-shown) {
-            +.formLabel {
-                color: $gris-osc-color;
-                transform: translateY(0);
-                font-size: .9rem;
-            }
-        }
-
-        &:focus {
-            border-bottom: 1.5px solid $gris-osc-color;
-
-            +.formLabel {
-                color: $gris-osc-color;
-                transform: translateY(0);
-                font-size: .9rem;
-            }
-        }
-
-        &:required+.formLabel {
-            color: $negro-color;
-        }
-
-        &:valid {
-            border-bottom: 1.5px solid $marron-color;
-
-            +.formLabel {
-                color: $marron-color;
-                transform: translateY(0);
-                font-size: .9rem;
-            }
-        }
-    }
+}

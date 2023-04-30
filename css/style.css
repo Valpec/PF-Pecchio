@@ -146,9 +146,7 @@ footer img {
 
 @media (min-width: 1024px) {
   .accesoProds {
-    margin-top: 4rem;
     padding: 2rem 0;
-    background-color: #A38F85;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: auto;
@@ -158,14 +156,8 @@ footer img {
   }
   .prodButton {
     grid-area: prodButton;
-    background: #EDE9E3;
     padding: 0.7rem;
-    color: #212529;
     width: fit-content;
-    transition: 0.4s;
-  }
-  .prodButton:hover {
-    background: #CDC6C3;
   }
   .carousel-wrapper {
     grid-area: carousel;
@@ -174,15 +166,6 @@ footer img {
     position: relative;
     display: block;
     margin-left: 2rem;
-  }
-  .carousel-item {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
   }
   .arrow {
     border: solid #EDE9E3;
@@ -201,39 +184,6 @@ footer img {
     position: absolute;
     top: 50%;
     transform: translateY(-50%) rotate(-45deg);
-  }
-  [id^=item] {
-    display: none;
-  }
-  .item-1 {
-    z-index: 2;
-    opacity: 1;
-    background: url(../img/productos/vela_madera_fondo.jpg);
-    background-size: cover;
-  }
-  .item-2 {
-    background: url(../img/productos/camino_mesa.jpeg);
-    background-size: cover;
-  }
-  .item-3 {
-    background: url(../img/productos/vela_nar_carousel.jpg);
-    background-size: cover;
-  }
-  .item-4 {
-    background: url(../img/productos/velas_vidrio_carousel.jpeg);
-    background-size: cover;
-  }
-  *:target ~ .item-1 {
-    opacity: 0;
-  }
-  #item-1:target ~ .item-1 {
-    opacity: 1;
-  }
-  #item-2:target ~ .item-2,
-  #item-3:target ~ .item-3,
-  #item-4:target ~ .item-4 {
-    z-index: 3;
-    opacity: 1;
   }
   .cardGrid {
     display: grid;
@@ -254,13 +204,6 @@ footer img {
   .card4 {
     grid-area: card4;
   }
-  .cardFlex {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
   .cardButton {
     position: absolute;
     background: #EDE9E3;
@@ -280,9 +223,6 @@ footer img {
   .menuProd li {
     padding: 1rem;
   }
-  .menuProd a:hover {
-    color: #E7D7C9;
-  }
   .catVelas,
   .catEsencias,
   .catTextiles,
@@ -294,9 +234,10 @@ footer img {
     justify-items: center;
   }
   .itemCatalogo {
-    max-width: fit-content;
     padding: 2rem 6rem;
+    max-width: fit-content;
     text-align: center;
+    cursor: pointer;
     transition: transform ease-in-out 0.5s;
   }
   .itemCatalogo:hover {
@@ -340,53 +281,7 @@ footer img {
   }
   .titleFaqs {
     text-align: center;
-    padding-top: 4rem;
-  }
-  .faqs {
-    background-color: #CDC6C3;
-    margin: 2rem;
-    height: min-content;
-  }
-  .tab {
-    border-bottom: solid 1.5px #EDE9E3;
-    overflow: hidden;
-  }
-  .tab:last-of-type {
-    border-bottom: 0px;
-  }
-  .tab-input {
-    display: none;
-  }
-  .tab-label {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    font-variation-settings: "wght" 500;
-    padding: 1.1rem;
-    cursor: pointer;
-  }
-  .tab-label:hover {
-    background-color: #EDE9E3;
-  }
-  .tab-label::after {
-    content: "❯";
-    transition: 0.4s;
-  }
-  .tab-answer {
-    padding: 0 1.4rem;
-    transition: ease-out 0.4s;
-    max-height: 0;
-  }
-  .tab-input:checked ~ .tab-answer {
-    max-height: max-content;
-    padding: 2rem;
-  }
-  .tab-input:checked ~ .tab-label {
-    background-color: #EDE9E3;
-  }
-  .tab-input:checked ~ .tab-label::after {
-    transform: rotate(90deg);
+    margin-top: 4rem;
   }
   .gridContact {
     background-color: #E7D7C9;
@@ -402,12 +297,7 @@ footer img {
     grid-area: medio;
   }
   .bloqueContacto {
-    background-color: #CDC6C3;
     padding: 6rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
   .formContacto {
     column-gap: 2rem;
@@ -453,7 +343,6 @@ footer img {
   flex-direction: column;
   justify-content: center;
   align-content: flex-start;
-  flex-wrap: nowrap;
   align-items: center;
   background-color: #CDC6C3;
   margin: 9rem;
@@ -492,21 +381,14 @@ footer img {
 
 @media (max-width: 768px) {
   .accesoProds {
-    margin-top: 10%;
-    background-color: #A38F85;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
   .prodButton {
-    background: #EDE9E3;
     padding: 1rem;
     margin: 2rem;
-  }
-  .prodButton:active {
-    background: #CDC6C3;
-    border: #EDE9E3 solid 1.5px;
   }
   .carousel-wrapper {
     grid-area: carousel;
@@ -515,15 +397,6 @@ footer img {
     position: relative;
     display: block;
     margin: 1.5rem;
-  }
-  .carousel-item {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
   }
   .arrow {
     border: solid #EDE9E3;
@@ -542,39 +415,6 @@ footer img {
     position: absolute;
     top: 50%;
     transform: translateY(-50%) rotate(-45deg);
-  }
-  [id^=item] {
-    display: none;
-  }
-  .item-1 {
-    z-index: 2;
-    opacity: 1;
-    background: url(../img/productos/vela_madera_fondo.jpg);
-    background-size: cover;
-  }
-  .item-2 {
-    background: url(../img/productos/camino_mesa.jpeg);
-    background-size: cover;
-  }
-  .item-3 {
-    background: url(../img/productos/vela_nar_carousel.jpg);
-    background-size: cover;
-  }
-  .item-4 {
-    background: url(../img/productos/velas_vidrio_carousel.jpeg);
-    background-size: cover;
-  }
-  *:target ~ .item-1 {
-    opacity: 0;
-  }
-  #item-1:target ~ .item-1 {
-    opacity: 1;
-  }
-  #item-2:target ~ .item-2,
-  #item-3:target ~ .item-3,
-  #item-4:target ~ .item-4 {
-    z-index: 3;
-    opacity: 1;
   }
   .cardGrid {
     display: grid;
@@ -595,16 +435,8 @@ footer img {
   .card4 {
     grid-area: card4;
   }
-  .cardFlex {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
   .cardButton {
     position: absolute;
-    color: #212529;
     background: #EDE9E3;
     padding: 0.5rem;
     font-size: 0.7em;
@@ -614,9 +446,6 @@ footer img {
   }
   .menuProd li {
     padding: 0.7rem;
-  }
-  .menuProd a:active {
-    color: #E7D7C9;
   }
   .catVelas,
   .catEsencias,
@@ -629,8 +458,6 @@ footer img {
   }
   .itemCatalogo {
     padding: 1.5rem;
-    row-gap: 1rem;
-    cursor: pointer;
     transition: transform 1s ease-in-out;
     text-align: center;
   }
@@ -670,54 +497,7 @@ footer img {
   }
   .titleFaqs {
     text-align: center;
-    padding-top: 7rem;
-  }
-  .faqs {
-    background-color: #CDC6C3;
-    margin: 2rem;
-    height: min-content;
-  }
-  .tab {
-    border-bottom: solid 1.5px #EDE9E3;
-    overflow: hidden;
-  }
-  .tab:last-of-type {
-    border-bottom: 0px;
-  }
-  .tab-input {
-    display: none;
-  }
-  .tab-label {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    font-variation-settings: "wght" 500;
-    flex-wrap: nowrap;
-    padding: 1rem;
-    cursor: pointer;
-  }
-  .tab-label:active {
-    background-color: #EDE9E3;
-  }
-  .tab-label::after {
-    content: "❯";
-    transition: 0.4s;
-  }
-  .tab-answer {
-    padding: 0 1.4rem;
-    transition: ease-out 0.4s;
-    max-height: 0;
-  }
-  .tab-input:checked ~ .tab-answer {
-    max-height: max-content;
-    padding: 2rem;
-  }
-  .tab-input:checked ~ .tab-label {
-    background-color: #EDE9E3;
-  }
-  .tab-input:checked ~ .tab-label::after {
-    transform: rotate(90deg);
+    margin-top: 7rem;
   }
   .gridContact {
     background-color: #E7D7C9;
@@ -733,11 +513,6 @@ footer img {
     grid-area: medio;
   }
   .bloqueContacto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #CDC6C3;
     padding: 7rem 2rem 1.5rem 1.5rem;
   }
   .formContacto {
@@ -801,7 +576,10 @@ body {
   height: 100vh;
 }
 
-h1, h2, h3, h5 {
+h1,
+h2,
+h3,
+h5 {
   font-variation-settings: "wght" 500;
 }
 
@@ -871,6 +649,78 @@ footer {
   font-variation-settings: "wght" 300;
 }
 
+.accesoProds {
+  margin-top: 4rem;
+  background-color: #A38F85;
+}
+
+.prodButton {
+  background: #EDE9E3;
+  transition: 0.4s;
+}
+.prodButton:hover {
+  background: #CDC6C3;
+}
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+[id^=item] {
+  display: none;
+}
+
+.item-1 {
+  z-index: 2;
+  opacity: 1;
+  background: url(../img/productos/vela_madera_fondo.jpeg);
+  background-size: cover;
+}
+
+.item-2 {
+  background: url(../img/productos/camino_mesa.jpeg);
+  background-size: cover;
+}
+
+.item-3 {
+  background: url(../img/productos/vela_nar_carousel.jpg);
+  background-size: cover;
+}
+
+.item-4 {
+  background: url(../img/productos/velas_vidrio_carousel.jpeg);
+  background-size: cover;
+}
+
+*:target ~ .item-1 {
+  opacity: 0;
+}
+
+#item-1:target ~ .item-1 {
+  opacity: 1;
+}
+
+#item-2:target ~ .item-2,
+#item-3:target ~ .item-3,
+#item-4:target ~ .item-4 {
+  z-index: 3;
+  opacity: 1;
+}
+
+.cardFlex {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .gridProductos {
   background-color: #E7D7C9;
   display: grid;
@@ -923,6 +773,9 @@ footer {
   align-items: center;
   justify-content: space-around;
 }
+.menuProd ul a:hover {
+  color: #E7D7C9;
+}
 
 .titCatalogo {
   text-align: center;
@@ -945,6 +798,65 @@ footer {
 
 .titleFaqs {
   grid-area: title;
+}
+
+.faqs {
+  background-color: #CDC6C3;
+  margin: 2rem;
+  height: min-content;
+}
+
+.tab {
+  border-bottom: solid 1.5px #EDE9E3;
+  overflow: hidden;
+}
+.tab:last-of-type {
+  border-bottom: 0px;
+}
+
+.tab-input {
+  display: none;
+}
+
+.tab-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-variation-settings: "wght" 500;
+  padding: 1rem;
+}
+.tab-label:active {
+  background-color: #EDE9E3;
+}
+.tab-label::after {
+  content: "❯";
+  transition: 0.4s;
+}
+
+.tab-answer {
+  padding: 0 1.4rem;
+  transition: ease-out 0.4s;
+  max-height: 0;
+}
+
+.tab-input:checked ~ .tab-answer {
+  max-height: max-content;
+  padding: 2rem;
+}
+.tab-input:checked ~ .tab-label {
+  background-color: #EDE9E3;
+}
+.tab-input:checked ~ .tab-label::after {
+  transform: rotate(90deg);
+}
+
+.bloqueContacto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #CDC6C3;
 }
 
 .formGroupName,

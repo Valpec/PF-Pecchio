@@ -1,22 +1,12 @@
 @media (max-width: 768px) {
-
     //index
     .accesoProds {
-        margin-top: 10%;
-        background-color: $marron-color;
-
         @include flex-col-center-cen
     }
 
     .prodButton {
-        background: $hueso-color;
         padding: 1rem;
         margin: 2rem;
-
-        &:active {
-            background: $gris-color;
-            border: $hueso-color solid 1.5px;
-        }
     }
 
     .carousel-wrapper {
@@ -26,16 +16,6 @@
         position: relative;
         display: block;
         margin: 1.5rem;
-    }
-
-    .carousel-item {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        opacity: 0;
-        transition: all 0.5s ease-in-out;
     }
 
     .arrow {
@@ -59,46 +39,6 @@
         transform: translateY(-50%) rotate(-45deg);
     }
 
-    [id^="item"] {
-        display: none;
-    }
-
-    .item-1 {
-        z-index: 2;
-        opacity: 1;
-        background: url(../img/productos/vela_madera_fondo.jpg);
-        background-size: cover;
-    }
-
-    .item-2 {
-        background: url(../img/productos/camino_mesa.jpeg);
-        background-size: cover;
-    }
-
-    .item-3 {
-        background: url(../img/productos/vela_nar_carousel.jpg);
-        background-size: cover;
-    }
-    .item-4 {
-        background: url(../img/productos/velas_vidrio_carousel.jpeg);
-        background-size: cover;
-    }
-
-    *:target~.item-1 {
-        opacity: 0;
-    }
-
-    #item-1:target~.item-1 {
-        opacity: 1;
-    }
-
-    #item-2:target~.item-2,
-    #item-3:target~.item-3,
-    #item-4:target~.item-4 
-        {
-        z-index: 3;
-        opacity: 1;
-    }
 
     .cardGrid {
         display: grid;
@@ -127,31 +67,20 @@
         grid-area: card4;
     }
 
-    .cardFlex {
-        padding: 1rem;
-        @include flex-col-center-cen;
-    }
-
     .cardButton {
         position: absolute;
-        color: $negro-color;
         background: $hueso-color;
         padding: .5rem;
         font-size: .7em;
     }
 
-    //prods
+    //productoss
     .menuProd {
         ul{
         flex-wrap: wrap;
         }
         li {
             padding: .7rem;
-        }
-        a {
-            &:active {
-                color: $beige-color;
-            }
         }
     }
 
@@ -167,8 +96,6 @@
 
     .itemCatalogo {
         padding: 1.5rem;
-        row-gap: 1rem;
-        cursor: pointer;
         transition: transform 1s ease-in-out;
         text-align: center;
 
@@ -218,64 +145,7 @@
     //faqs
     .titleFaqs {
         text-align: center;
-        padding-top: 7rem;
-    }
-
-    .faqs {
-        background-color: $gris-color;
-        margin: 2rem;
-        height: min-content;
-    }
-
-    .tab {
-        border-bottom: solid 1.5px $hueso-color;
-        overflow: hidden;
-
-        &:last-of-type {
-            border-bottom: 0px;
-        }
-    }
-
-    .tab-input {
-        display: none;
-    }
-
-    .tab-label {
-        @include flex-row-center-bet;
-        font-variation-settings: $font-semibold;
-        flex-wrap: nowrap;
-        padding: 1rem;
-        cursor: pointer;
-
-        &:active {
-            background-color: $hueso-color;
-        }
-
-        &::after {
-            content: "❯";
-            transition: .4s;
-        }
-    }
-
-    .tab-answer {
-        padding: 0 1.4rem;
-        transition: ease-out .4s;
-        max-height: 0;
-    }
-
-    .tab-input {
-        &:checked~.tab-answer {
-            max-height: max-content;
-            padding: 2rem;
-        }
-
-        &:checked~.tab-label {
-            background-color: $hueso-color;
-
-            &::after {
-                transform: rotate(90deg);
-            }
-        }
+        margin-top: 7rem;
     }
 
     //contacto
@@ -299,11 +169,7 @@
         grid-area: medio;
     }
 
-
     .bloqueContacto {
-        @include flex-col-center-cen;
-
-        background-color: $gris-color;
         padding: 7rem 2rem 1.5rem 1.5rem;
 
     }
